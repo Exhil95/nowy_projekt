@@ -17,11 +17,10 @@ class PogodaAPI:
             if 'current' not in data:
                 raise KeyError(f"Odpowiedź nie zawiera 'current': {data}")
             
-            warunki_dane = WarunkiPogodowe[data['current']['condition']['text'].lower()]
             try:
-                warunki = WarunkiPogodowe(warunki_dane.replace(" ", "_"))
+                warunki = WarunkiPogodowe[data['current']['condition']['text'].lower().replace(" ", "_")]
             except ValueError:
-                warunki = WarunkiPogodowe.pochmurnie
+                warunki = WarunkiPogodowe.cloudy
             
             return CzujnikDane(
                 temperatura=data['current']['temp_c'],

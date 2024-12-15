@@ -1,9 +1,9 @@
 from enum import StrEnum
 
 class WarunkiPogodowe(StrEnum):
-    slonecznie = "sunny"
-    pochmurnie = "cloudy"
-    deszczowo = "rainy"
-    snieznie = "snowy"
-    wietrznie = "windy"
-    czesciowe_zachmurzenie = "partly cloudy"
+    sunny = "słonecznie"
+    cloudy = "pochmurnie"
+    rainy = "deszczowo"
+    snowy = "śnieżnie"
+    windy = "wietrznie"
+    partly_cloudy = "częściowe zachmurzenie"
