@@ -1,6 +1,6 @@
-from enum import Enum
+from enum import StrEnum
 
-class WarunkiPogodowe(Enum):
+class WarunkiPogodowe(StrEnum):
     slonecznie = "sunny"
     pochmurnie = "cloudy"
     deszczowo = "rainy"
