@@ -12,10 +12,12 @@ if __name__ == "__main__":
     api_klient = PogodaAPI(API_KEY)
 
    # try:
-    czujnik = api_klient.sprawdz_pogode(LOCATION)
-    print(f"Informacje Pogodowe: {czujnik}")
+    for miasta in Lokalizacje:
+        print(f"Sprawdzanie danych w {miasta.name}")
+        czujnik = api_klient.sprawdz_pogode(miasta.value)
+        print(f"Informacje Pogodowe: {czujnik}")
 
-    kontroler.zmien_warunki(czujnik)
-    print(szklarnia)
+        kontroler.zmien_warunki(czujnik)
+        print(szklarnia)
     #except (ValueError, ConnectionError) as e:
     #    print(f"Error: {e}")
