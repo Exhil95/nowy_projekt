@@ -7,3 +7,4 @@ class WarunkiPogodowe(StrEnum):
     snowy = "śnieżnie"
     windy = "wietrznie"
     partly_cloudy = "częściowe zachmurzenie"
+    patchy_rain_nearby = "miejscowe opady"

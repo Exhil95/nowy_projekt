@@ -2,8 +2,9 @@ from modele.szklarnia import Szklarnia
 from kontroler.kontroler import KontrolerSzkalrni
 from util.api_klient import PogodaAPI
 from util.api_key import API_KEY
+from enumy.lokacje import Lokalizacje
   
-LOCATION = "Athens,GR"
+LOCATION = Lokalizacje.algieria
 
 if __name__ == "__main__":
     szklarnia = Szklarnia(nazwa="Szklarnia1")
