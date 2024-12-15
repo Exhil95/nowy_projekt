@@ -15,5 +15,7 @@ class KontrolerSzkalrni:
             self.szklarnia.dostosuj_warunki(22.0, 50.0)
         elif CzujnikDane.warunki == WarunkiPogodowe.SNOWY:
             self.szklarnia.dostosuj_warunki(18.0, 40.0)
+        elif CzujnikDane.warunki == WarunkiPogodowe.PARTLY_CLOUDY:
+            self.szklarnia.dostosuj_warunki(21.0, 55.0)
         else:
             self.szklarnia.dostosuj_warunki(20.0, 50.0)
