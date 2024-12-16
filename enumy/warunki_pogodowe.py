@@ -15,3 +15,7 @@ class WarunkiPogodowe(StrEnum):
     moderate_or_heavy_snow_showers = "średnie lub duże opady śniegu"
     light_rain_shower = "lekkie opady deszczu"
     mist = "mgła"
+    light_snow_showers = "lekkie opady śniegu"
+    moderate_rain = "średnie opady"
+    patchy_light_rain_with_thunder = "miejscowe opady z piorunami"
+    light_snow = "lekkie opady śniegu"
