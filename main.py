@@ -45,8 +45,10 @@ def test_main() -> None:
             kontroler.zmien_warunki(czujnik)
             print(szklarnia)
     else:
-        for miasta in Lokalizacje:
-            print("Odczyt z bazy")
+        dane_baza:list = baza.pobierz_dane()
+        for i in dane_baza:
+            print(f"Sprawdzanie danych w {i[0]}")
+            
     
     finish = time.perf_counter()
     wynik = round(finish - start, 5)

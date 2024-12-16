@@ -58,11 +58,9 @@ class Baza:
 def main():
     baza = Baza()
     baza.sprawdz_istnienie_db()
-    wyniki = baza.pobierz_dane()
+    wyniki:list = baza.pobierz_dane()
     
-    for i in wyniki:
-        print(i)
-    
+    print(wyniki)
 
 
 if __name__ == "__main__":
