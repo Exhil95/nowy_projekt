@@ -30,30 +30,32 @@ class Baza:
             cursor.execute('''
                 CREATE TABLE IF NOT EXISTS dane (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    nazwa TEXT NOT NULL,
-                    wartosc INTEGER NOT NULL
+                    lokacja TEXT NOT NULL,
+                    temperatura FLOAT NOT NULL,
+                    wilgotnosc FLOAT NOT NULL,
+                    warunki TEXT NOT NULL
                 )
                            ''')
             con.commit()
             
-    def dodaj_dane(self, nazwa: str, wartosc: int):
+    def dodaj_dane(self, lokacja: str, temperatura: float, wilgotnosc: float, warunki: str):
         with self.polacz_baza() as con:
             cursor = con.cursor()
             cursor.execute('''
-                INSERT INTO dane (nazwa, wartosc)
-                VALUES (?, ?)
-            ''', (nazwa, wartosc))
+                INSERT INTO dane (lokacja, temperatura, wilgotnosc, warunki)
+                VALUES (?, ?, ?, ?)
+            ''', (lokacja, temperatura, wilgotnosc, warunki))
             con.commit()
-            print(f"Dodano dane: {nazwa} - {wartosc}")
+            print(f"Dodano dane: {lokacja} - {temperatura} - {wilgotnosc} - {warunki}")
 
 def main():
     baza = Baza()
     baza.sprawdz_istnienie_db()
     
     baza.utworz_tabele()
-    baza.dodaj_dane("Przykład 1", 123)
-    baza.dodaj_dane("Przykład 2", 456)
-    baza.dodaj_dane("Przykład 3", 789)
+    baza.dodaj_dane("polska", 12, 60, "cloudy")
+    baza.dodaj_dane("japonia", 13, 90, "rainy")
+    baza.dodaj_dane("iran", 14, 66, "sunny")
     # polaczenie = None
     
     # try:
