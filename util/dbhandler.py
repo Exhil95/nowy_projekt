@@ -47,7 +47,7 @@ class Baza:
             ''', (lokacja, temperatura, wilgotnosc, warunki))
             con.commit()
             print(f"Dodano dane: {lokacja} - {temperatura} - {wilgotnosc} - {warunki}")
-
+            
 def main():
     baza = Baza()
     baza.sprawdz_istnienie_db()
