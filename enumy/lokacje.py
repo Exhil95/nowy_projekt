@@ -30,7 +30,7 @@ class Lokalizacje(StrEnum):
     kanada = "Ottawa,CA"
     australia = "Canberra,AU"
     nowa_zelandia = "Wellington,NZ"
-    brazyliia = "Brasilia,BR"
+    brazylia = "Brasilia,BR"
     argentyna = "Buenos Aires,AR"
     chile = "Santiago,CL"
     meksyk = "Mexico City,MX"
@@ -50,3 +50,14 @@ class Lokalizacje(StrEnum):
     tunisja = "Tunis,TN"
     libia = "Tripoli,LY"
     algieria = "Algiers,DZ"
+    syria = "Damascus,SY"
+    iran = "Tehran,IR"
+    japonia = "Tokio,JP"
+    
+    
+def main(x):
+    return [item.name for item in x]
+
+if __name__ == "__main__":
+    lista_lokalizacji = main(Lokalizacje)
+    print(lista_lokalizacji)
