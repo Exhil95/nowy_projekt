@@ -53,3 +53,11 @@ class Lokalizacje(StrEnum):
     syria = "Damascus,SY"
     iran = "Tehran,IR"
     japonia = "Tokio,JP"
+    
+    
+def main(x):
+    return [item.name for item in x]
+
+if __name__ == "__main__":
+    lista_lokalizacji = main(Lokalizacje)
+    print(lista_lokalizacji)
