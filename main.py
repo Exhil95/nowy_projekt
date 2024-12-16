@@ -3,15 +3,14 @@ from kontroler.kontroler import KontrolerSzkalrni
 from util.api_klient import PogodaAPI
 from util.api_key import API_KEY
 from enumy.lokacje import Lokalizacje
-  
-LOCATION = Lokalizacje.algieria
+import time
 
-if __name__ == "__main__":
+def main() -> None:
+    start = time.perf_counter()
     szklarnia = Szklarnia(nazwa="Szklarnia1")
     kontroler = KontrolerSzkalrni(szklarnia)
     api_klient = PogodaAPI(API_KEY)
 
-   # try:
     for miasta in Lokalizacje:
         print(f"Sprawdzanie danych w {miasta.name}")
         czujnik = api_klient.sprawdz_pogode(miasta.value)
@@ -19,5 +18,10 @@ if __name__ == "__main__":
 
         kontroler.zmien_warunki(czujnik)
         print(szklarnia)
-    #except (ValueError, ConnectionError) as e:
-    #    print(f"Error: {e}")
+        
+    finish = time.perf_counter()
+    wynik = round(finish - start, 2)
+    print(f"Zakończono w czasie {wynik} sekund")
+        
+if __name__ == "__main__":
+    main()
