@@ -30,7 +30,7 @@ class Baza:
             cursor.execute('''
                 CREATE TABLE IF NOT EXISTS dane (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    lokacja TEXT NOT NULL,
+                    lokacja TEXT UNIQUE NOT NULL,
                     temperatura FLOAT NOT NULL,
                     wilgotnosc FLOAT NOT NULL,
                     warunki TEXT NOT NULL

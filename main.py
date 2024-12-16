@@ -49,7 +49,7 @@ def test_main() -> None:
             print("Odczyt z bazy")
     
     finish = time.perf_counter()
-    wynik = round(finish - start, 2)
+    wynik = round(finish - start, 5)
     print(f"Zakończono w czasie {wynik} sekund(y)")
           
 if __name__ == "__main__":
