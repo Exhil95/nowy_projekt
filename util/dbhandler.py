@@ -23,24 +23,50 @@ class Baza:
         if not os.path.isfile(self.plik):
             raise FileNotFoundError(f"Baza danych '{self.plik}' nie istnieje. Użyj metody `sprawdz_istnienie_db()`.")
         return sql.connect(self.plik)
+    
+    def utworz_tabele(self):
+        with self.polacz_baza() as con:
+            cursor = con.cursor()
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS dane (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    nazwa TEXT NOT NULL,
+                    wartosc INTEGER NOT NULL
+                )
+                           ''')
+            con.commit()
+            
+    def dodaj_dane(self, nazwa: str, wartosc: int):
+        with self.polacz_baza() as con:
+            cursor = con.cursor()
+            cursor.execute('''
+                INSERT INTO dane (nazwa, wartosc)
+                VALUES (?, ?)
+            ''', (nazwa, wartosc))
+            con.commit()
+            print(f"Dodano dane: {nazwa} - {wartosc}")
 
 def main():
     baza = Baza()
     baza.sprawdz_istnienie_db()
     
-    polaczenie = None
+    baza.utworz_tabele()
+    baza.dodaj_dane("Przykład 1", 123)
+    baza.dodaj_dane("Przykład 2", 456)
+    baza.dodaj_dane("Przykład 3", 789)
+    # polaczenie = None
     
-    try:
-        polaczenie = baza.polacz_baza()
-        print("Połączono z bazą danych:", polaczenie)
+    # try:
+    #     polaczenie = baza.polacz_baza()
+    #     print("Połączono z bazą danych:", polaczenie)
         
-    except FileNotFoundError as e:
-        print("Błąd:", e)
+    # except FileNotFoundError as e:
+    #     print("Błąd:", e)
         
-    finally:
-        if polaczenie:
-            polaczenie.close()
-            print("Połączenie zostało zamknięte.")
+    # finally:
+    #     if polaczenie:
+    #         polaczenie.close()
+    #         print("Połączenie zostało zamknięte.")
 
 if __name__ == "__main__":
     main()
