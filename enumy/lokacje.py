@@ -55,9 +55,9 @@ class Lokalizacje(StrEnum):
     japonia = "Tokio,JP"
     
     
-def main(x):
-    return [item.name for item in x]
+# def main(x):
+#     return [item.name for item in x]
 
-if __name__ == "__main__":
-    lista_lokalizacji = main(Lokalizacje)
-    print(lista_lokalizacji)
+# if __name__ == "__main__":
+#     lista_lokalizacji = main(Lokalizacje)
+#     print(lista_lokalizacji)
