@@ -19,9 +19,9 @@ def main() -> None:
     if not baza.sprawdz_istnienie_db():
         baza.utworz_tabele()
         for miasta in Lokalizacje:
-            print(f"Sprawdzanie danych w {miasta.name}")
-            czujnik = api_klient.sprawdz_pogode(miasta.name)
-            baza.dodaj_dane(miasta.name, czujnik.temperatura, czujnik.wilgotnosc, czujnik.warunki.value)
+            print(f"Sprawdzanie danych w {miasta.value}")
+            czujnik = api_klient.sprawdz_pogode(miasta.value)
+            baza.dodaj_dane(miasta.value, czujnik.temperatura, czujnik.wilgotnosc, czujnik.warunki.value)
             print(f"Informacje Pogodowe: {czujnik}")
             kontroler.zmien_warunki(czujnik)
             print(szklarnia)

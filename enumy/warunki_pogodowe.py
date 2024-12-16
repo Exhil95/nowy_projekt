@@ -21,3 +21,4 @@ class WarunkiPogodowe(StrEnum):
     light_snow = "lekkie opady śniegu"
     light_drizzle = "lekkie opady"
     freezing_fog = "marznąca mgła"
+    fog = "mgła"
