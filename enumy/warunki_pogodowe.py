@@ -19,3 +19,5 @@ class WarunkiPogodowe(StrEnum):
     moderate_rain = "średnie opady"
     patchy_light_rain_with_thunder = "miejscowe opady z piorunami"
     light_snow = "lekkie opady śniegu"
+    light_drizzle = "lekkie opady"
+    freezing_fog = "marznąca mgła"
