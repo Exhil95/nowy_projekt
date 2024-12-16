@@ -13,3 +13,5 @@ class WarunkiPogodowe(StrEnum):
     overcast = "zachmurzone niebo"
     light_freezing_rain = "lekkie marznące opady"
     moderate_or_heavy_snow_showers = "średnie lub duże opady śniegu"
+    light_rain_shower = "lekkie opady deszczu"
+    mist = "mgła"
