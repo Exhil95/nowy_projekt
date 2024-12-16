@@ -4,6 +4,7 @@ from util.api_klient import PogodaAPI
 from util.api_key import API_KEY
 from enumy.lokacje import Lokalizacje
 import time
+from util.dbhandler import Baza
 
 def main() -> None:
     start = time.perf_counter()
@@ -21,7 +22,7 @@ def main() -> None:
         
     finish = time.perf_counter()
     wynik = round(finish - start, 2)
-    print(f"Zakończono w czasie {wynik} sekund")
+    print(f"Zakończono w czasie {wynik} sekund(y)")
         
 if __name__ == "__main__":
     main()
