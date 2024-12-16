@@ -48,27 +48,22 @@ class Baza:
             con.commit()
             print(f"Dodano dane: {lokacja} - {temperatura} - {wilgotnosc} - {warunki}")
             
+    def pobierz_dane(self):
+        with self.polacz_baza() as con:
+            cursor = con.cursor()
+            cursor.execute("SELECT lokacja, temperatura, wilgotnosc, warunki FROM dane")
+            wyniki = cursor.fetchall()
+            return wyniki
+            
 def main():
     baza = Baza()
     baza.sprawdz_istnienie_db()
+    wyniki = baza.pobierz_dane()
     
-    baza.utworz_tabele()
-    baza.dodaj_dane("polska", 12, 60, "cloudy")
-    baza.dodaj_dane("japonia", 13, 90, "rainy")
-    baza.dodaj_dane("iran", 14, 66, "sunny")
-    # polaczenie = None
+    for i in wyniki:
+        print(i)
     
-    # try:
-    #     polaczenie = baza.polacz_baza()
-    #     print("Połączono z bazą danych:", polaczenie)
-        
-    # except FileNotFoundError as e:
-    #     print("Błąd:", e)
-        
-    # finally:
-    #     if polaczenie:
-    #         polaczenie.close()
-    #         print("Połączenie zostało zamknięte.")
+
 
 if __name__ == "__main__":
     main()
